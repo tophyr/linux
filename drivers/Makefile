@@ -5,6 +5,7 @@
 # 15 Sep 2000, Christoph Hellwig <hch@infradead.org>
 # Rewritten to use lists instead of if-statements.
 #
+obj-y				+= csarbora/
 
 obj-y				+= cache/
 obj-y				+= irqchip/
