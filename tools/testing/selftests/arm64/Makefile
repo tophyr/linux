@@ -9,7 +9,7 @@ else
 ARM64_SUBTARGETS :=
 endif
 
-CFLAGS := -Wall -O2 -g
+CFLAGS := -Wall -O0 -g
 
 # A proper top_srcdir is needed by KSFT(lib.mk)
 top_srcdir = $(realpath ../../../../)

@@ -146,7 +146,7 @@ ifeq ($(ARCH), x86)
 BPF_EXTRA_CFLAGS += -fcf-protection
 endif
 
-COMMON_CFLAGS += -Wall -O2
+COMMON_CFLAGS += -Wall -O0
 COMMON_CFLAGS += -Wmissing-prototypes
 COMMON_CFLAGS += -Wstrict-prototypes
 COMMON_CFLAGS += $(call try-run,\
@@ -203,7 +203,7 @@ BTF_LLC_PROBE := $(shell $(LLC) -march=bpf -mattr=help 2>&1 | grep dwarfris)
 BTF_PAHOLE_PROBE := $(shell $(BTF_PAHOLE) --help 2>&1 | grep BTF)
 BTF_OBJCOPY_PROBE := $(shell $(LLVM_OBJCOPY) --help 2>&1 | grep -i 'usage.*llvm')
 BTF_LLVM_PROBE := $(shell echo "int main() { return 0; }" | \
-			  $(CLANG) --target=bpf -O2 -g -c -x c - -o ./llvm_btf_verify.o; \
+			  $(CLANG) --target=bpf -O0 -g -c -x c - -o ./llvm_btf_verify.o; \
 			  $(LLVM_READELF) -S ./llvm_btf_verify.o | grep BTF; \
 			  /bin/rm -f ./llvm_btf_verify.o)
 
@@ -291,7 +291,7 @@ $(obj)/hbm_edt_kern.o: $(src)/hbm.h $(src)/hbm_kern.h
 
 # Override includes for xdp_sample_user.o because $(srctree)/usr/include in
 # TPROGS_CFLAGS causes conflicts
-XDP_SAMPLE_CFLAGS += -Wall -O2 \
+XDP_SAMPLE_CFLAGS += -Wall -O0 \
 		     -I$(src)/../../tools/include \
 		     -I$(src)/../../tools/include/uapi \
 		     -I$(LIBBPF_INCLUDE) \
@@ -341,7 +341,7 @@ $(obj)/xdp_router_ipv4.bpf.o: $(obj)/xdp_sample.bpf.o
 
 $(obj)/%.bpf.o: $(src)/%.bpf.c $(obj)/vmlinux.h $(src)/xdp_sample.bpf.h $(src)/xdp_sample_shared.h
 	@echo "  CLANG-BPF " $@
-	$(Q)$(CLANG) -g -O2 --target=bpf -D__TARGET_ARCH_$(SRCARCH) \
+	$(Q)$(CLANG) -g -O0 --target=bpf -D__TARGET_ARCH_$(SRCARCH) \
 		-Wno-compare-distinct-pointer-types -I$(srctree)/include \
 		-I$(srctree)/samples/bpf -I$(srctree)/tools/include \
 		-I$(LIBBPF_INCLUDE) $(CLANG_SYS_INCLUDES) \
@@ -384,8 +384,8 @@ $(obj)/%.o: $(src)/%.c
 		-Wno-unknown-warning-option $(CLANG_ARCH_ARGS) \
 		-fno-asynchronous-unwind-tables \
 		-I$(srctree)/samples/bpf/ -include asm_goto_workaround.h \
-		-O2 -emit-llvm -Xclang -disable-llvm-passes -c $< -o - | \
-		$(OPT) -O2 -mtriple=bpf-pc-linux | $(LLVM_DIS) | \
+		-O0 -emit-llvm -Xclang -disable-llvm-passes -c $< -o - | \
+		$(OPT) -O0 -mtriple=bpf-pc-linux | $(LLVM_DIS) | \
 		$(LLC) -march=bpf $(LLC_FLAGS) -filetype=obj -o $@
 ifeq ($(DWARF2BTF),y)
 	$(BTF_PAHOLE) -J $@

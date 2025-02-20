@@ -11,7 +11,7 @@ ifeq ("$(origin O)", "command line")
 endif
 
 turbostat : turbostat.c
-override CFLAGS +=	-O2 -Wall -Wextra -I../../../include
+override CFLAGS +=	-O0 -Wall -Wextra -I../../../include
 override CFLAGS +=	-DMSRHEADER='"../../../../arch/x86/include/asm/msr-index.h"'
 override CFLAGS +=	-DINTEL_FAMILY_HEADER='"../../../../arch/x86/include/asm/intel-family.h"'
 override CFLAGS +=	-DBUILD_BUG_HEADER='"../../../../include/linux/build_bug.h"'

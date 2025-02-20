@@ -70,7 +70,7 @@ $(LIBBPF_BOOTSTRAP)-clean: FORCE | $(LIBBPF_BOOTSTRAP_OUTPUT)
 prefix ?= /usr/local
 bash_compdir ?= /usr/share/bash-completion/completions
 
-CFLAGS += -O2
+CFLAGS += -O0
 CFLAGS += -W -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
 CFLAGS += $(filter-out -Wswitch-enum -Wnested-externs,$(EXTRA_WARNINGS))
 CFLAGS += -DPACKAGE='"bpftool"' -D__EXPORTED_HEADERS__ \
@@ -228,7 +228,7 @@ $(OUTPUT)%.bpf.o: skeleton/%.bpf.c $(OUTPUT)vmlinux.h $(LIBBPF_BOOTSTRAP)
 		-I$(or $(OUTPUT),.) \
 		-I$(srctree)/tools/include/uapi/ \
 		-I$(LIBBPF_BOOTSTRAP_INCLUDE) \
-		-g -O2 -Wall -fno-stack-protector \
+		-g -O0 -Wall -fno-stack-protector \
 		--target=bpf -c $< -o $@
 	$(Q)$(LLVM_STRIP) -g $@
 

@@ -89,7 +89,7 @@ ifneq ($(wildcard $(GENHDR)),)
   GENFLAGS := -DHAVE_GENHDR
 endif
 
-CFLAGS += -g -O2 -rdynamic -pthread -Wall -Werror $(GENFLAGS)			\
+CFLAGS += -g -O0 -rdynamic -pthread -Wall -Werror $(GENFLAGS)			\
 	  -I$(INCLUDE_DIR) -I$(GENDIR) -I$(LIBDIR)				\
 	  -I$(TOOLSINCDIR) -I$(APIDIR) -I$(CURDIR)/include
 
@@ -122,7 +122,7 @@ BPF_CFLAGS = -g -D__TARGET_ARCH_$(SRCARCH)					\
 	     -I../../include							\
 	     $(call get_sys_includes,$(CLANG))					\
 	     -Wall -Wno-compare-distinct-pointer-types				\
-	     -O2 -mcpu=v3
+	     -O0 -mcpu=v3
 
 # sort removes libbpf duplicates when not cross-building
 MAKE_DIRS := $(sort $(OBJ_DIR)/libbpf $(HOST_BUILD_DIR)/libbpf			\

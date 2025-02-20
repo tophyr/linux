@@ -2,7 +2,7 @@
 
 # Memblock simulator requires AddressSanitizer (libasan) and liburcu development
 # packages installed
-CFLAGS += -I. -I../../include -Wall -O2 -fsanitize=address \
+CFLAGS += -I. -I../../include -Wall -O0 -fsanitize=address \
 	  -fsanitize=undefined -D CONFIG_PHYS_ADDR_T_64BIT
 LDFLAGS += -fsanitize=address -fsanitize=undefined
 TARGETS = main

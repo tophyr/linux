@@ -37,7 +37,7 @@ WAN port. You'll need the "sethdlc" utility, get it from:
 
 Compile sethdlc.c utility::
 
-	gcc -O2 -Wall -o sethdlc sethdlc.c
+	gcc -O0 -Wall -o sethdlc sethdlc.c
 
 Make sure you're using a correct version of sethdlc for your kernel.
 

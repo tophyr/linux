@@ -2,7 +2,7 @@
 #
 # First run: make -C ../../../.. headers_install
 
-CFLAGS += -Wall -O2 $(KHDR_INCLUDES)
+CFLAGS += -Wall -O0 $(KHDR_INCLUDES)
 
 LOCAL_HDRS += common.h
 

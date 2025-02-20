@@ -14,12 +14,12 @@ set -o pipefail
 # Test whether the compile option -fpatchable-function-entry exists and
 # generates appropriate code
 echo "int func() { return 0; }" | \
-    $* -m64 -mabi=elfv2 -S -x c -O2 -fpatchable-function-entry=2 - -o - 2> /dev/null | \
+    $* -m64 -mabi=elfv2 -S -x c -O0 -fpatchable-function-entry=2 - -o - 2> /dev/null | \
     grep -q "__patchable_function_entries"
 
 # Test whether nops are generated after the local entry point
 echo "int x; int func() { return x; }" | \
-    $* -m64 -mabi=elfv2 -S -x c -O2 -fpatchable-function-entry=2 - -o - 2> /dev/null | \
+    $* -m64 -mabi=elfv2 -S -x c -O0 -fpatchable-function-entry=2 - -o - 2> /dev/null | \
     awk 'BEGIN { RS = ";" } /\.localentry.*nop.*\n[[:space:]]*nop/ { print $0 }' | \
     grep -q "func:"
 

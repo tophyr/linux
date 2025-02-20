@@ -71,7 +71,7 @@ BOOTCPPFLAGS	+= -isystem $(shell $(BOOTCC) -print-file-name=include)
 
 BOOTCFLAGS	:= $(BOOTTARGETFLAGS) \
 		   -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
-		   -fno-strict-aliasing -O2 \
+		   -fno-strict-aliasing -O0 \
 		   -msoft-float -mno-altivec -mno-vsx \
 		   $(call cc-option,-mno-prefixed) \
 		   $(call cc-option,-mno-pcrel) \

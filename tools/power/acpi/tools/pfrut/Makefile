@@ -6,7 +6,7 @@ TOOL = pfrut
 EXTRA_INSTALL = install-man
 EXTRA_UNINSTALL = uninstall-man
 
-CFLAGS += -Wall -O2
+CFLAGS += -Wall -O0
 CFLAGS += -DPFRUT_HEADER='"../../../../../include/uapi/linux/pfrut.h"'
 LDFLAGS += -luuid
 

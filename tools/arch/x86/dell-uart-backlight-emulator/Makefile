@@ -5,7 +5,7 @@ dell-uart-backlight-emulator: dell-uart-backlight-emulator.c
 
 BINDIR ?= /usr/bin
 
-override CFLAGS += -O2 -Wall
+override CFLAGS += -O0 -Wall
 
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)

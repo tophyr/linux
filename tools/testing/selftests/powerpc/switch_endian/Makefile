@@ -7,7 +7,7 @@ top_srcdir = ../../../../..
 include ../../lib.mk
 include ../flags.mk
 
-ASFLAGS += -O2 -Wall -g -nostdlib -m64
+ASFLAGS += -O0 -Wall -g -nostdlib -m64
 
 $(OUTPUT)/switch_endian_test: ASFLAGS += -I $(OUTPUT)
 $(OUTPUT)/switch_endian_test: $(OUTPUT)/check-reversed.S

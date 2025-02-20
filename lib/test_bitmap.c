@@ -1239,7 +1239,7 @@ static void __init test_bitmap_const_eval(void)
 
 	/*
 	 * Compilers must be able to optimize all of those to compile-time
-	 * constants on any supported optimization level (-O2, -Os) and any
+	 * constants on any supported optimization level (-O0, -Os) and any
 	 * architecture. Otherwise, trigger a build bug.
 	 * The whole function gets optimized out then, there's nothing to do
 	 * in runtime.

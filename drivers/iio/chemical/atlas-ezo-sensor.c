@@ -187,7 +187,7 @@ static const struct iio_info atlas_info = {
 
 static const struct i2c_device_id atlas_ezo_id[] = {
 	{ "atlas-co2-ezo", (kernel_ulong_t)&atlas_ezo_devices[ATLAS_CO2_EZO] },
-	{ "atlas-o2-ezo", (kernel_ulong_t)&atlas_ezo_devices[ATLAS_O2_EZO] },
+	{ "atlas-O0-ezo", (kernel_ulong_t)&atlas_ezo_devices[ATLAS_O2_EZO] },
 	{ "atlas-hum-ezo", (kernel_ulong_t)&atlas_ezo_devices[ATLAS_HUM_EZO] },
 	{}
 };

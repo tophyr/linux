@@ -10,10 +10,10 @@
  *
  * Usage:
  * $ # for 4.5/4.6/C based 4.7
- * $ gcc -I`gcc -print-file-name=plugin`/include -I`gcc -print-file-name=plugin`/include/c-family -fPIC -shared -O2 -o randomize_layout_plugin.so randomize_layout_plugin.c
+ * $ gcc -I`gcc -print-file-name=plugin`/include -I`gcc -print-file-name=plugin`/include/c-family -fPIC -shared -O0 -o randomize_layout_plugin.so randomize_layout_plugin.c
  * $ # for C++ based 4.7/4.8+
- * $ g++ -I`g++ -print-file-name=plugin`/include -I`g++ -print-file-name=plugin`/include/c-family -fPIC -shared -O2 -o randomize_layout_plugin.so randomize_layout_plugin.c
- * $ gcc -fplugin=./randomize_layout_plugin.so test.c -O2
+ * $ g++ -I`g++ -print-file-name=plugin`/include -I`g++ -print-file-name=plugin`/include/c-family -fPIC -shared -O0 -o randomize_layout_plugin.so randomize_layout_plugin.c
+ * $ gcc -fplugin=./randomize_layout_plugin.so test.c -O0
  */
 
 #include "gcc-common.h"
@@ -817,7 +817,7 @@ static unsigned int find_bad_casts_execute(void)
 			} else {
 				const_tree ssa_name_var = SSA_NAME_VAR(rhs1);
 				/* skip bogus type casts introduced by container_of */
-				if (ssa_name_var != NULL_TREE && DECL_NAME(ssa_name_var) && 
+				if (ssa_name_var != NULL_TREE && DECL_NAME(ssa_name_var) &&
 				    !strcmp((const char *)DECL_NAME_POINTER(ssa_name_var), "__mptr"))
 					continue;
 #ifndef __DEBUG_PLUGIN
