@@ -59,7 +59,7 @@ other program after you have done the following:
 
    You, too, need the little program after the script. Compile like::
 
-	gcc -O0 -o javaclassname javaclassname.c
+	gcc -O2 -o javaclassname javaclassname.c
 
    and stick it to ``/usr/local/bin``.
 

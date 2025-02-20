@@ -21,7 +21,7 @@ obj-cvdso32 := $(addprefix $(obj)/, $(obj-cvdso32))
 VDSO_CFLAGS_REMOVE := -pg $(CC_FLAGS_FTRACE)
 CFLAGS_REMOVE_vdso32_generic.o = $(VDSO_CFLAGS_REMOVE)
 
-ccflags-y := -shared -fno-common -fbuiltin -mno-fast-indirect-calls -O0 -mno-long-calls
+ccflags-y := -shared -fno-common -fbuiltin -mno-fast-indirect-calls -O2 -mno-long-calls
 #  -march=1.1 -mschedule=7100LC
 ccflags-y += -nostdlib -Wl,-soname=linux-vdso32.so.1 \
 		$(call ld-option, -Wl$(comma)--hash-style=sysv)

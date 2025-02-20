@@ -8,7 +8,7 @@ pound := \#
 
 # Adjust as desired
 CC       = gcc
-OPTFLAGS = -O0
+OPTFLAGS = -O2
 CFLAGS   = -I.. -I ../../../include -g $(OPTFLAGS)
 LD       = ld
 AWK      = awk -f

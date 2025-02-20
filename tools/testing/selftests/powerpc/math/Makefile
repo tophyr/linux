@@ -6,7 +6,7 @@ include ../../lib.mk
 include ../flags.mk
 
 $(TEST_GEN_PROGS): ../harness.c
-$(TEST_GEN_PROGS): CFLAGS += -O0 -g -pthread -m64 -maltivec
+$(TEST_GEN_PROGS): CFLAGS += -O2 -g -pthread -m64 -maltivec
 
 $(OUTPUT)/fpu_syscall: fpu_asm.S
 $(OUTPUT)/fpu_preempt: fpu_asm.S

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0-only
-CFLAGS += -I. -I../../include -g -O0 -Wall -fsanitize=address
+CFLAGS += -I. -I../../include -g -O2 -Wall -fsanitize=address
 LDFLAGS += -fsanitize=address -fsanitize=undefined
 TARGETS = main
 OFILES = main.o scatterlist.o

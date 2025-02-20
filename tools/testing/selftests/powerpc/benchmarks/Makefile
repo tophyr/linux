@@ -8,7 +8,7 @@ top_srcdir = ../../../../..
 include ../../lib.mk
 include ../flags.mk
 
-CFLAGS += -O0
+CFLAGS += -O2
 
 $(TEST_GEN_PROGS): ../harness.c
 

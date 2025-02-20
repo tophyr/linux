@@ -7,7 +7,7 @@ CFLAGS = -Wextra
 
 BINDIR ?= /usr/sbin
 
-override CFLAGS += -O0 -Wall
+override CFLAGS += -O2 -Wall
 
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)

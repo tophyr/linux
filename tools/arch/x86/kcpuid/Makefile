@@ -9,7 +9,7 @@ BINDIR ?= /usr/sbin
 
 HWDATADIR ?= /usr/share/misc/
 
-override CFLAGS += -O0 -Wall -I../../../include
+override CFLAGS += -O2 -Wall -I../../../include
 
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS)

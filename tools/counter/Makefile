@@ -12,7 +12,7 @@ endif
 # (this improves performance and avoids hard-to-debug behaviour);
 MAKEFLAGS += -r
 
-override CFLAGS += -O0 -Wall -g -D_GNU_SOURCE -I$(OUTPUT)include \
+override CFLAGS += -O2 -Wall -g -D_GNU_SOURCE -I$(OUTPUT)include \
 	 -I$(srctree)/tools/include
 
 ALL_TARGETS := counter_example counter_watch_events

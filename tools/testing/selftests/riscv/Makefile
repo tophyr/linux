@@ -10,7 +10,7 @@ else
 RISCV_SUBTARGETS :=
 endif
 
-CFLAGS := -Wall -O0 -g
+CFLAGS := -Wall -O2 -g
 
 # A proper top_srcdir is needed by KSFT(lib.mk)
 top_srcdir = $(realpath ../../../../)

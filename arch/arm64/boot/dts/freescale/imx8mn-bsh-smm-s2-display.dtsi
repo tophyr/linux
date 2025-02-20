@@ -51,7 +51,7 @@
 		gpio = <&gpio1 7 GPIO_ACTIVE_LOW>;
 	};
 
-	reg_v3v3_avdd: regulator-3v3-O0 {
+	reg_v3v3_avdd: regulator-3v3-O2 {
 		compatible = "regulator-fixed";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_avdd>;
