@@ -1,0 +1,8 @@
+#!/bin/sh -
+if [ "$1" = "shell" ]; then
+  shift 1
+  exec /bin/sh $@
+else
+  exec /bin/pu $@
+fi
+
