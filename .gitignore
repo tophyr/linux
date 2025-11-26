@@ -180,3 +180,7 @@ sphinx_*/
 
 # Rust analyzer configuration
 /rust-project.json
+
+# csarbora test shit
+RAMFS/bin/pu
+
